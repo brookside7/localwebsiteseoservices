@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Local Landing Page Grader | Free SEO Analysis Tool</title>
+  <meta name="description" content="Grade your location or service pages on local SEO essentials. Get recommended outline and copy improvements.">
+  <link rel="canonical" href="https://localwebsiteseoservices.com/tools/landing-page-grader/">
+
+  <meta property="og:title" content="Local Landing Page Grader">
+  <meta property="og:description" content="Grade your location pages on local SEO essentials.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://localwebsiteseoservices.com/tools/landing-page-grader/">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Local Landing Page Grader">
+  <meta name="twitter:description" content="Grade your location pages on local SEO essentials.">
+
+  <link rel="stylesheet" href="/assets/css/styles.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://localwebsiteseoservices.com"
+    },{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://localwebsiteseoservices.com/tools/"
+    },{
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Landing Page Grader",
+      "item": "https://localwebsiteseoservices.com/tools/landing-page-grader/"
+    }]
+  }
+  </script>
+</head>
+<body>
+
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <a href="/" class="logo">Local Website SEO Services</a>
+        <button class="mobile-toggle" aria-label="Toggle navigation">☰</button>
+        <nav class="nav">
+          <a href="/services/">Services</a>
+          <a href="/locations/">Locations</a>
+          <a href="/tools/">Tools</a>
+          <a href="/case-studies/">Case Studies</a>
+          <a href="/pricing/">Pricing</a>
+          <a href="/about/">About</a>
+          <a href="/contact/">Contact</a>
+          <a href="/blog/">Blog</a>
+          <a href="/tools/instant-audit/" class="btn btn-primary">Instant Audit</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container-narrow">
+      <h1 class="text-center">Local Landing Page Grader</h1>
+      <p class="text-center" style="max-width: 700px; margin: 0 auto var(--spacing-md);">Grade your location or service pages on local SEO essentials. Get a recommended outline and copy improvements you can implement today.</p>
+    </div>
+  </section>
+
+  <section class="section section-gray">
+    <div class="container-narrow">
+      <form id="pageGraderForm" data-skip-handler="true">
+        <div id="inputSection">
+          <h2>Enter Page Details</h2>
+
+          <div class="form-group">
+            <label for="pageURL">Page URL (optional)</label>
+            <input type="url" id="pageURL" name="pageURL" placeholder="https://example.com/location-page" aria-label="Page URL">
+            <small>Or describe your page content below</small>
+          </div>
+
+          <div class="form-group">
+            <label for="pageContent">Page Content / Description *</label>
+            <textarea id="pageContent" name="pageContent" rows="4" required placeholder="Paste your page text or describe what's currently on the page..." aria-label="Page content"></textarea>
+          </div>
+
+          <h3>Essential Elements Checklist</h3>
+          <p>Check all elements present on your page:</p>
+
+          <div class="form-group">
+            <label><input type="checkbox" name="element" value="clear-service"> Clear service/value proposition in first paragraph</label>
+          </div>
+
+          <div class="form-group">
+            <label><input type="checkbox" name="element" value="location-name"> Location/city name in H1 or first heading</label>
+          </div>
+
+          <div class="form-group">
+            <label><input type="checkbox" name="element" value="nap-visible"> NAP (Name, Address, Phone) clearly visible</label>
+          </div>
+
+          <div class="form-group">
+            <label><input type="checkbox" name="element" value="primary-cta"> Primary CTA (call, form, booking) above fold</label>
+          </div>
+
+          <div class="form-group">
+            <label><input type="checkbox" name="element" value="service-list"> List of services offered</label>
+          </div>
+
+          <div class="form-group">
+            <label><input type="checkbox" name="element" value="proof"> Proof elements (reviews, testimonials, credentials)</label>
+          </div>
+
+          <div class="form-group">
+            <label><input type="checkbox" name="element" value="faqs"> FAQs section</label>
+          </div>
+
+          <div class="form-group">
+            <label><input type="checkbox" name="element" value="nearby-areas"> Nearby areas served mentioned</label>
+          </div>
+
+          <div class="form-group">
+            <label><input type="checkbox" name="element" value="internal-links"> Internal links to other pages</label>
+          </div>
+
+          <div class="form-group">
+            <label><input type="checkbox" name="element" value="schema"> Schema markup present</label>
+          </div>
+
+          <div class="form-group">
+            <label><input type="checkbox" name="element" value="unique-content"> Unique content (not duplicated from other pages)</label>
+          </div>
+
+          <div class="form-group">
+            <label><input type="checkbox" name="element" value="images"> Relevant local images</label>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-large" style="width: 100%; margin-top: var(--spacing-md);">Grade My Page</button>
+        </div>
+
+        <div id="resultsSection" class="hidden">
+          <h2 class="text-center">Your Page Grade</h2>
+
+          <div class="score-display">
+            <div style="text-align: center;">
+              <div id="pageGrade" style="font-size: 5rem; font-weight: bold; color: var(--primary);">-</div>
+              <h3 id="gradeLabel"></h3>
+            </div>
+          </div>
+
+          <div style="margin: var(--spacing-lg) 0;">
+            <h3>Missing Essential Elements</h3>
+            <div id="missingElements"></div>
+          </div>
+
+          <div style="margin: var(--spacing-lg) 0;">
+            <h3>Recommended Page Outline</h3>
+            <div id="recommendedOutline" class="card"></div>
+          </div>
+
+          <div style="margin: var(--spacing-lg) 0;">
+            <h3>Copy Improvement Suggestions</h3>
+            <div id="copySuggestions"></div>
+          </div>
+
+          <button type="button" id="copyOutline" class="btn btn-secondary">Copy Outline to Clipboard</button>
+          <button type="button" onclick="window.print()" class="btn btn-outline" style="margin-left: var(--spacing-sm);">Print Report</button>
+
+          <div class="alert alert-info" style="margin-top: var(--spacing-lg);">
+            <strong>Need help building better location pages?</strong><br>
+            <a href="/services/on-page-local-seo/">Learn about our on-page local SEO service</a> or <a href="/contact/">schedule a consultation</a>.
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div>
+          <h4>Local Website SEO Services</h4>
+          <p>Professional local SEO services for businesses throughout Riverside County.</p>
+          <p>
+            <strong>Address:</strong> [ADDRESS]<br>
+            <strong>Phone:</strong> 1951-545-4118<br>
+            <strong>Email:</strong> localwebsiteseoservices@gmail.com
+          </p>
+        </div>
+
+        <div>
+          <h4>Services</h4>
+          <a href="/services/google-business-profile-optimization/">Google Business Profile</a>
+          <a href="/services/local-citations-nap-cleanup/">Citations & NAP</a>
+          <a href="/services/on-page-local-seo/">On-Page Local SEO</a>
+          <a href="/services/technical-seo/">Technical SEO</a>
+          <a href="/services/review-reputation-system/">Review Management</a>
+        </div>
+
+        <div>
+          <h4>Service Areas</h4>
+          <a href="/locations/corona-ca/">Corona, CA</a>
+          <a href="/locations/riverside-ca/">Riverside, CA</a>
+          <a href="/locations/">All Locations</a>
+        </div>
+
+        <div>
+          <h4>Company</h4>
+          <a href="/about/">About Us</a>
+          <a href="/case-studies/">Case Studies</a>
+          <a href="/pricing/">Pricing</a>
+          <a href="/tools/">Free Tools</a>
+          <a href="/contact/">Contact</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Local Website SEO Services. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/tools-landing-page-grader.js"></script>
+
+</body>
+</html>

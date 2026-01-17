@@ -1,0 +1,108 @@
+# Redirect Template for WordPress to Static Migration
+#
+# Format: OLD_URL -> NEW_URL
+#
+# Instructions:
+# 1. List all URLs that have changed between your old WordPress site and this new site
+# 2. Keep URLs that haven't changed off this list (they don't need redirects)
+# 3. Use this list to create 301 redirects in your .htaccess file
+#
+# .htaccess Format:
+# Redirect 301 /old-url/ https://yourdomain.com/new-url/
+#
+# Replace "yourdomain.com" with your actual domain
+
+# ===================================
+# EXAMPLE REDIRECTS (CUSTOMIZE THESE)
+# ===================================
+
+# If your WordPress URLs used different paths:
+/service/google-my-business/ -> /services/google-business-profile-optimization/
+/service/citations/ -> /services/local-citations-nap-cleanup/
+/service/onpage-seo/ -> /services/on-page-local-seo/
+
+# If location pages were under different paths:
+/location/corona/ -> /locations/corona-ca/
+/location/riverside/ -> /locations/riverside-ca/
+
+# If you had a blog that you're not migrating:
+/blog/ -> /
+/category/local-seo/ -> /services/
+/tag/google-maps/ -> /services/google-business-profile-optimization/
+
+# Old WordPress pages that don't have equivalents:
+/about-us/ -> /about/
+/get-in-touch/ -> /contact/
+/our-services/ -> /services/
+
+# WordPress default pages you might want to redirect:
+/sample-page/ -> /
+/wp-admin/ -> /
+/wp-login.php -> /
+
+# Old landing pages or promotional pages:
+/special-offer/ -> /pricing/
+/free-consultation/ -> /contact/
+
+# ===================================
+# HOW TO USE THIS LIST
+# ===================================
+
+# Step 1: Fill out this template with YOUR actual old and new URLs
+# Step 2: Convert to .htaccess format (see example below)
+# Step 3: Add to .htaccess file in your public_html root directory
+# Step 4: Test each redirect to make sure it works
+
+# ===================================
+# .HTACCESS EXAMPLE
+# ===================================
+
+# Copy this format for each redirect you need:
+#
+# Redirect 301 /old-url/ https://yourdomain.com/new-url/
+# Redirect 301 /another-old-url/ https://yourdomain.com/new-url/
+#
+# Example:
+# Redirect 301 /service/google-my-business/ https://localwebsiteseoservices.com/services/google-business-profile-optimization/
+# Redirect 301 /location/corona/ https://localwebsiteseoservices.com/locations/corona-ca/
+
+# ===================================
+# TESTING REDIRECTS
+# ===================================
+
+# After adding redirects, test them:
+# 1. Visit the old URL in your browser
+# 2. Verify you're redirected to the correct new URL
+# 3. Check the HTTP status code is 301 (not 302) using https://httpstatus.io
+# 4. Test on both www and non-www versions of your domain
+
+# ===================================
+# COMMON WORDPRESS URLS TO REDIRECT
+# ===================================
+
+# These are common WordPress URLs you should redirect:
+
+/wp-content/ -> /
+/wp-includes/ -> /
+/xmlrpc.php -> /
+/wp-cron.php -> /
+/readme.html -> /
+/license.txt -> /
+
+# Old attachment URLs (if you moved images):
+/wp-content/uploads/2024/01/image.jpg -> /assets/images/image.jpg
+
+# Feed URLs (if not keeping feeds):
+/feed/ -> /
+/comments/feed/ -> /
+
+# ===================================
+# NOTES
+# ===================================
+
+# - Always use 301 (permanent) redirects, not 302 (temporary)
+# - Test redirects before and after launch
+# - Monitor Google Search Console for 404 errors after migration
+# - Keep redirects in place permanently (don't remove them)
+# - Redirect to the most relevant new page, or homepage if no equivalent exists
+# - Avoid redirect chains (A->B->C). Always redirect directly (A->C)
