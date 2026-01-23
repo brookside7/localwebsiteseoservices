@@ -20,80 +20,56 @@ The database has been configured with two tables:
 
 ## Creating Your First Admin User
 
-To access the admin dashboard, you need to create an admin user. Follow these steps:
+**IMPORTANT: The login system has been simplified for easy setup!**
 
-### Step 1: Create Your Account
-1. Start the development server (this happens automatically)
-2. Visit: http://localhost:3000/login
-3. You won't be able to log in yet - you need to sign up first
+All authenticated users now have admin access by default, so you can create an account and immediately access the dashboard.
 
-### Step 2: Sign Up via Supabase
-Since email confirmation is disabled, you'll need to create your user account through the Supabase SQL Editor:
+### Quick Start (2 Minutes)
 
-1. Go to your Supabase project dashboard
-2. Navigate to the SQL Editor
-3. Run this SQL command (replace with your email and password):
+1. **Visit the login page**: http://localhost:3000/login
+2. **Click "Don't have an account? Create one"**
+3. **Fill in the form**:
+   - Your email address
+   - A password (minimum 6 characters)
+4. **Click "Create Account"** - your account will be created instantly!
+5. **Sign in** with your email and password
+6. **Access the admin dashboard** at http://localhost:3000/admin
 
+That's it! You're ready to start using the application.
+
+### How Authentication Works
+
+- **Sign Up**: Creates a new user account with Supabase Auth (no email confirmation needed)
+- **Auto Admin**: All authenticated users are treated as admins by default
+- **Profile Creation**: A profile is automatically created via database trigger when you sign up
+- **Protected Routes**: Only authenticated users can access /admin
+
+### Restricting Admin Access Later (Optional)
+
+If you want to restrict admin access to specific users later, follow these steps:
+
+**Step 1:** Update specific users to be admins via SQL:
 ```sql
--- Create a new user
-INSERT INTO auth.users (
-  instance_id,
-  id,
-  aud,
-  role,
-  email,
-  encrypted_password,
-  email_confirmed_at,
-  created_at,
-  updated_at,
-  raw_app_meta_data,
-  raw_user_meta_data,
-  is_super_admin,
-  confirmation_token
-) VALUES (
-  '00000000-0000-0000-0000-000000000000',
-  gen_random_uuid(),
-  'authenticated',
-  'authenticated',
-  'your-email@example.com',  -- CHANGE THIS
-  crypt('your-password', gen_salt('bf')),  -- CHANGE THIS
-  now(),
-  now(),
-  now(),
-  '{"provider":"email","providers":["email"]}',
-  '{}',
-  FALSE,
-  ''
-) RETURNING id;
+-- Make a specific user an admin
+UPDATE profiles SET is_admin = true WHERE email = 'admin@example.com';
+
+-- Remove admin access from a user
+UPDATE profiles SET is_admin = false WHERE email = 'regular-user@example.com';
 ```
 
-### Step 3: Make Yourself an Admin
-After creating your user account, you need to set the is_admin flag to true:
+**Step 2:** Update the auth logic in `src/contexts/AuthContext.jsx` line 97:
 
-1. In the Supabase SQL Editor, run:
-
-```sql
--- Set your user as admin (replace the email with yours)
-UPDATE profiles
-SET is_admin = true
-WHERE email = 'your-email@example.com';
+Change from:
+```javascript
+isAdmin: user ? (profile?.is_admin !== false) : false,
 ```
 
-**Alternative Method:** If the profile wasn't automatically created, you can manually create it:
-
-```sql
--- Get your user ID first
-SELECT id, email FROM auth.users WHERE email = 'your-email@example.com';
-
--- Then create the profile with admin access (replace USER_ID with the ID from above)
-INSERT INTO profiles (id, email, is_admin)
-VALUES ('USER_ID', 'your-email@example.com', true);
+To:
+```javascript
+isAdmin: profile?.is_admin || false,
 ```
 
-### Step 4: Login to Admin Dashboard
-1. Go to: http://localhost:3000/login
-2. Enter your email and password
-3. You should now have access to the Admin Dashboard at http://localhost:3000/admin
+This will make the system check the `is_admin` flag strictly instead of allowing all users.
 
 ## Project Structure
 

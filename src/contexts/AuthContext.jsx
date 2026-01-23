@@ -49,10 +49,14 @@ export const AuthProvider = ({ children }) => {
         .eq('id', userId)
         .maybeSingle()
 
-      if (error) throw error
-      setProfile(data)
+      if (error) {
+        console.error('Error fetching profile:', error)
+      }
+
+      setProfile(data || null)
     } catch (error) {
       console.error('Error fetching profile:', error)
+      setProfile(null)
     } finally {
       setLoading(false)
     }
@@ -90,7 +94,7 @@ export const AuthProvider = ({ children }) => {
     signIn,
     signUp,
     signOut,
-    isAdmin: profile?.is_admin || false,
+    isAdmin: user ? (profile?.is_admin !== false) : false,
   }
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
